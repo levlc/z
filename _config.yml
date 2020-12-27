@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-destination: ../GitHub/z
+# destination: ../GitHub/z
 lang: en-GB
 title: levlc
 email: dugan.nash@mailinator.com
@@ -37,7 +37,7 @@ liquid:
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-basically-basic
+remote_theme: "mmistakes/jekyll-theme-basically-basic"
 plugins: # previously gems
   - jekyll-feed
   - jekyll-seo-tag
