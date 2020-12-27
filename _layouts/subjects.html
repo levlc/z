@@ -1,0 +1,16 @@
+---
+layout: pin
+---
+{% assign all_subjects = site.pins | map: 'subject' | group-by: 'subject' | sort_natural %}
+{% assign uniq_subjects = all_subjects | uniq %}
+{% assign total_pins = site.pins | size %}
+<ul class="pins-index">
+  {% for subject in uniq_subjects %}
+    {% capture counter %}{{ site.pins | where:"subject", subject | size }}{% endcapture %}
+      <li><a href="{{ subject | downcase | replace: " ", "-" }}" rel="bookmark">{{ subject }}<span class="taxonomy-count">{{ counter }}</span></a></li>
+  {% endfor %}
+</ul>
+<ul class="pins-index">
+  <li><a rel="bookmark">TOTAL PINS:<span class="taxonomy-count">{{ total_pins }}</span></a></li>
+  <li><a href=objects rel="bookmark">GO TO OBJECTS<span class="taxonomy-count">→</span></a></li>
+</ul>

@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<main id="main" class="page-content" aria-label="Content">
+    <div class="inner">
+        <p class="entry-meta">
+        {% if page.subject %} 
+            <span class="byline-item"><span class="icon">{% include icon-book.svg %}<a href="{{ page.subject | downcase | replace: " ", "-" }}"></span>{{ page.subject }}</span></a>
+        {% endif %}
+        {% if page.object %} 
+            <span class="byline-item"><span class="icon">{% include icon-user.svg %}<a href="{{ page.object | downcase | replace: " ", "-" }}"></span>{{ page.object }}</span></a>       
+        {% endif %}
+        </p>
+    </div>
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        {{ content }}
+      </div>
+    </article>
+  </div>
+</main>
+
+
+
+

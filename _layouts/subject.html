@@ -1,0 +1,17 @@
+---
+layout: pin
+---
+<ul class="pins-index">
+    {%- for pin in site.pins -%}
+        {% capture page_taxonomy %}{{ page.title }}{% endcapture %}
+
+        {% if pin.subject == page_taxonomy -%}
+        <li><a href="{{ pin.url | relative_url }}" rel="bookmark">{{ pin.title }}<span class="taxonomy-count">→</span></a></li>
+        {% endif %}
+
+    {%- endfor -%}
+</ul>
+
+<ul class="pins-index">
+    <li><a href=subjects rel="bookmark">GO TO ALL SUBJECTS<span class="taxonomy-count">→</span></a></li>
+</ul>

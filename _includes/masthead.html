@@ -1,0 +1,16 @@
+{% if site.logo contains '://' %}
+  {% assign site_logo = site.logo %}
+{% else %}
+  {% assign site_logo = site.logo | relative_url %}
+{% endif %}
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+        <p class="site-title">
+            {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
+            <span>{{ page.title | escape }}</span>
+        </p>
+    </div>
+  </div>
+</header>
