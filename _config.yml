@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-# destination: ../GitHub/z
+destination: ../lev-lc-site
 lang: en-GB
 title: levlc
 description: "description I need to edit"
@@ -35,10 +35,12 @@ liquid:
 
 # Build settings
 markdown: kramdown
+# theme: "jekyll-theme-basically-basic"
 remote_theme: "mmistakes/jekyll-theme-basically-basic"
 plugins: # previously gems
 #  - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-paginate
 # feed:
@@ -62,9 +64,9 @@ paginate_path: /page:num/
 
 # Collections
 collections:
-  recipes:
+  links:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:name
   pins:
     output: true
     permalink: /z/:name
@@ -80,13 +82,13 @@ defaults:
     values:
       layout: post
       read_time: true
-  # _recipes
+  # _links
   - scope:
-      path: "_recipes"
-      type: recipes
+      path: "_links"
+      type: links
     values:
       layout: post
-      read_time: true
+      read_time: false
   # _pins
   - scope:
       path: "_pins"
