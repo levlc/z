@@ -16,7 +16,6 @@
 # destination: ../GitHub/z
 lang: en-GB
 title: levlc
-email: dugan.nash@mailinator.com
 description: "description I need to edit"
 baseurl: "/"  # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
@@ -25,7 +24,6 @@ author:
   twitter: 
   picture: 
 twitter_username: levelsie
-github_username: 
 logo: /assets/levlc-88-w.png
 search: true
 search_full_content: 
@@ -39,12 +37,12 @@ liquid:
 markdown: kramdown
 remote_theme: "mmistakes/jekyll-theme-basically-basic"
 plugins: # previously gems
-  - jekyll-feed
+#  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate
-feed:
-  path: atom.xml
+# feed:
+#  path: atom.xml
 
 # Pagination - https://jekyllrb.com/docs/pagination/
 paginate: 10
