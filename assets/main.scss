@@ -5,9 +5,9 @@
 /* Colors */
 $base-color: #b2c2e0 !default;
 $text-color: #ffffff !default;
-$accent-color: #3d3d3d !default;
+$accent-color: #818181 !default;
 $background-color: #121212 !default;
-$code-background-color: #fff !default;
+$code-background-color: $background-color !default;
 $border-color: rgba($text-color, 0.5) !default;
 $overlay-color: #fff !default;
 $sidebar-background-color: #181818 !default;
