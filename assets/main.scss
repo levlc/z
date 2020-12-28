@@ -11,11 +11,22 @@ $code-background-color: #fff !default;
 $border-color: rgba($text-color, 0.5) !default;
 $overlay-color: #fff !default;
 $sidebar-background-color: #000000 !default;
-/* Overide styles */
+
+/* --Overide styles-- */
 .search-input {
     color: #fff;
   }
-/* Additional styles */
+
+  /* Base font family */
+  $base-font-family: 'Exo 2', sans-serif !default;
+  /* Other font families */
+  /* $headline-font-family: $base-font-family !default; */
+  $headline-font-family: 'Exo 2', sans-serif  !default;
+  $monospace-font-family: 'Space Grotesk', sans-serif !default;
+
+  @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,600;1,400;1,600&family=Space+Grotesk&display=swap');
+
+/* --Additional styles-- */
 .pins-index {
   display: grid;
   grid-column-gap: 2em;
@@ -41,4 +52,18 @@ $sidebar-background-color: #000000 !default;
     }
   }
 }
+/* --reverse footnote 8617 to 8629-- */
+.reversefootnote {
+  visibility: hidden;
+  position: relative;
+}
+
+.reversefootnote:after {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "\21B5";
+}
+
 @import "basically-basic";

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en-US' }}" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    {% if site.plugins contains 'jekyll-seo-tag' or site.gems contains 'jekyll-seo-tag' %}
+      {% comment %}
+        Add metadata for search engines and social networks if jekyll-seo-tag plugin is enabled
+      {% endcomment %}
+      {% include head-seo.html %}
+    {% else %}
+      <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+      <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+      <link rel="canonical" href="{{ page.url | replace:'index.html', '' | absolute_url }}">
+    {% endif %}
+  
+    <script>
+      if ( 'querySelector' in document && 'addEventListener' in window ) {
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+      }
+    </script>
+  
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+      
+    {% if site.plugins contains 'jekyll-feed' or site.gems contains 'jekyll-feed'%}
+      {% comment %}
+        Add Atom feed link if jekyll-feed plugin is enabled
+      {% endcomment %}
+      {% include head-feed.html %}
+    {% endif %}
+  </head>
+
+  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} {{ page.title | slugify }}">
+
+    {% include skip-links.html %}
+
+    <div class="sidebar-toggle-wrapper">
+      {% if site.search %}
+        <button class="search-toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <title>{{ site.data.theme.t.search | default: 'Search' }}</title>
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+      {% endif %}
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">{{ site.data.theme.t.menu | default: 'Menu' }}</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        {% include navigation.html %}
+        
+        <ul class="contact-list">
+          {% if site.email %}
+            <li>
+              <a href="mailto:{{ site.email }}">
+                <span class="icon icon--email">{% include icon-email.svg %}</span>
+                <span class="label">{{ site.data.theme.t.email | default: 'Email' }}</span>
+              </a>
+            </li>
+          {% endif %}
+        
+          {% if site.github_username %}
+            <li>{% include icon-github.html username=site.github_username label='GitHub' %}</li>
+          {% endif %}
+        
+          {% if site.twitter_username %}
+            <li>{% include icon-twitter.html username=site.twitter_username label=site.twitter_username %}</li>
+          {% endif %}
+        
+          <li>
+            {% if site.plugins contains 'jekyll-feed' or site.gems contains 'jekyll-feed' %}
+              <a href="{{ site.feed.path | default: 'feed.xml' | relative_url }}" title="Atom Feed">
+                <span class="icon icon--rss">{% include icon-rss.svg %}</span>
+                <span class="label">{{ site.data.theme.t.subscribe | default: 'Subscribe' }}</span>
+              </a>
+            {% endif %}
+          </li>
+        </ul>        
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        {% if site.logo contains '://' %}
+  {% assign site_logo = site.logo %}
+{% else %}
+  {% assign site_logo = site.logo | relative_url %}
+{% endif %}
+        <header id="masthead">
+          <div class="inner">
+            <div class="title-area">
+              <p class="site-title">
+              {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
+              <span><i>{{ page.title | escape }}</i></span>
+              </p>
+            </div>
+          </div>
+        </header>
+        <div class="initial-content">
+          {{ content }}
+        </div>
+
+        <div class="search-content">
+          {% include search-form.html %}
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+      <div class="inner">
+        <div class="copyright">
+          {% if site.copyright %}
+            {{ site.copyright | markdownify }}
+          {% else %}
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}.</p>
+          {% endif %}
+        </div>
+      </div>
+    </footer>
+    
+    {% include scripts.html %}
+
+  </body>
+
+</html>
