@@ -4,27 +4,26 @@
 @charset "utf-8";
 /* Colors */
 $base-color: #b2c2e0 !default;
-$text-color: #eaeaea !default;
-$accent-color: #be1f1f !default;
-$background-color: #000000 !default;
+$text-color: #ffffff !default;
+$accent-color: #3d3d3d !default;
+$background-color: #121212 !default;
 $code-background-color: #fff !default;
 $border-color: rgba($text-color, 0.5) !default;
 $overlay-color: #fff !default;
-$sidebar-background-color: #000000 !default;
+$sidebar-background-color: #181818 !default;
 
 /* --Overide styles-- */
 .search-input {
-    color: #fff;
-  }
+  color: $text-color;
+}
 
-  /* Base font family */
-  $base-font-family: 'Exo 2', sans-serif !default;
-  /* Other font families */
+/* fonts, font family */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,600;1,300;1,600&family=Space+Grotesk&display=swap');
+  $base-font-family: 'Merriweather Sans', sans-serif !default;
   /* $headline-font-family: $base-font-family !default; */
-  $headline-font-family: 'Exo 2', sans-serif  !default;
+  $headline-font-family: $base-font-family !default;
   $monospace-font-family: 'Space Grotesk', sans-serif !default;
-
-  @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,600;1,400;1,600&family=Space+Grotesk&display=swap');
 
 /* --Additional styles-- */
 .pins-index {
