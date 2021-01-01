@@ -1,5 +1,5 @@
 ---
 title: subjects
 layout: subjects
-permalink: /z/subjects
+permalink: /bricolage/subjects
 ---

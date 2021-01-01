@@ -100,7 +100,7 @@
             <div class="title-area">
               <p class="site-title">
               {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
-              <span><i>{{ page.title | escape }}</i></span>
+              <span><i>{{ page.title | downcase | escape }}</i></span>
               </p>
             </div>
           </div>

@@ -1,5 +1,5 @@
 ---
 title: objects
 layout: objects
-permalink: /z/objects
+permalink: /bricolage/objects
 ---

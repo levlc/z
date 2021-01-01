@@ -26,6 +26,9 @@ $sidebar-background-color: #181818 !default;
   $monospace-font-family: 'Space Grotesk', sans-serif !default;
 
 /* --Additional styles-- */
+.pins-taxonomy {
+  text-decoration: none;
+}
 .pins-index {
   display: grid;
   grid-column-gap: 2em;

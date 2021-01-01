@@ -18,7 +18,7 @@ lang: en-GB
 title: levlc
 description: "description I need to edit"
 baseurl: "/"  # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://lev.lc" # the base hostname & protocol for your site, e.g. http://example.com
 author:
   name: levelsie
   twitter: 
@@ -69,7 +69,7 @@ collections:
     permalink: /:name
   pins:
     output: true
-    permalink: /z/:name
+    permalink: /bricolage/:name
   meta:
     output: true
     permalink: /z/:name
@@ -95,8 +95,8 @@ defaults:
       type: pins
     values:
       layout: pin
-      object: -no object- # default, to group orphan meta
-      subject: -no subject- # default, to group orphan meta
+#      object: -no object- # default, to group orphan meta
+#      subject: -no subject- # default, to group orphan meta
       search: true
       read_time: false
   # _meta

@@ -1,17 +1,36 @@
 ---
-layout: pin
+layout: default
 ---
-<ul class="pins-index">
-    {%- for pin in site.pins -%}
-        {% capture page_taxonomy %}{{ page.title }}{% endcapture %}
-
-        {% if pin.subject == page_taxonomy -%}
-        <li><a href="{{ pin.url | relative_url }}" rel="bookmark">{{ pin.title }}<span class="taxonomy-count">→</span></a></li>
-        {% endif %}
-
-    {%- endfor -%}
-</ul>
-
-<ul class="pins-index">
-    <li><a href=subjects rel="bookmark">GO TO ALL SUBJECTS<span class="taxonomy-count">→</span></a></li>
-</ul>
+<main id="main" class="page-content" aria-label="Content">
+    <div class="inner">
+        <p class="entry-meta">
+            {% if page.subject %} 
+            <span class="byline-item"><span class="icon">{% include icon-book.svg %}<a href="{{ page.subject | downcase | replace: " ", "-" }}"></span>{{ page.subject }}</span></a>
+            {% endif %}
+            {% if page.object %} 
+            <span class="byline-item"><span class="icon">{% include icon-user.svg %}<a href="{{ page.object | downcase | replace: " ", "-" }}"></span>{{ page.object }}</span></a>       
+            {% endif %}
+        </p>
+    </div>
+    <div class="inner">
+        <article class="entry-wrap">
+            <div class="entry-content">
+                {{ content }}
+            </div>
+        </article>
+        <ul class="pins-index">
+            {%- for pin in site.pins -%}
+                {% capture page_taxonomy %}{{ page.title }}{% endcapture %}
+        
+                {% if pin.subject == page_taxonomy -%}
+                <li><a href="{{ pin.url | relative_url }}" rel="bookmark">{{ pin.title | downcase}}<span class="taxonomy-count">→</span></a></li>
+                {% endif %}
+        
+            {%- endfor -%}
+        </ul>
+        
+        <ul class="pins-index">
+            <li><a href=subjects rel="bookmark">GO TO ALL SUBJECTS<span class="taxonomy-count">→</span></a></li>
+        </ul>
+    </div>
+</main>

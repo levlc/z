@@ -1,26 +1,28 @@
 ---
 layout: default
 ---
+{% assign all_subjects = site.pins | map: 'subject' | group-by: 'subject' | sort_natural %}
+{% assign all_objects = site.pins | map: 'object' | group-by: 'object' | sort_natural %}
+{% assign uniq_subjects = all_subjects | uniq %}
+{% assign uniq_objects = all_objects | uniq %}
+{% assign page_subject = page.subject %}
+{% assign page_object = page.object %}
+{% capture subject_count %}{{ site.pins | where:"subject", page_subject | size }}{% endcapture %}
+{% capture object_count %}{{ site.pins | where:"object", page_object | size }}{% endcapture %}
 <main id="main" class="page-content" aria-label="Content">
     <div class="inner">
-        <p class="entry-meta">
-        {% if page.subject %} 
-            <span class="byline-item"><span class="icon">{% include icon-book.svg %}<a href="{{ page.subject | downcase | replace: " ", "-" }}"></span>{{ page.subject }}</span></a>
-        {% endif %}
-        {% if page.object %} 
-            <span class="byline-item"><span class="icon">{% include icon-user.svg %}<a href="{{ page.object | downcase | replace: " ", "-" }}"></span>{{ page.object }}</span></a>       
-        {% endif %}
-        </p>
+      <article class="entry-wrap">
+        <div class="entry-content">
+          {{ content }}
+        </div>
+      </article>
+      <p class="entry-meta">
+      {% if page.subject %} 
+          <span class="byline-item"><span class="icon">{% include icon-book.svg %}</span><a class="pins-taxonomy" href="{{ page.subject | downcase | replace: " ", "-" }}">{{ page.subject }} [{{ subject_count }}]</a></span>
+      {% endif %}
+      {% if page.object %} 
+          <span class="byline-item"><span class="icon">{% include icon-user.svg %}</span><a class="pins-taxonomy" href="{{ page.object | downcase | replace: " ", "-" }}">{{ page.object }} [{{ object_count }}]</a></span>       
+      {% endif %}
+      </p>  
     </div>
-  <div class="inner">
-    <article class="entry-wrap">
-      <div class="entry-content">
-        {{ content }}
-      </div>
-    </article>
-  </div>
 </main>
-
-
-
-
