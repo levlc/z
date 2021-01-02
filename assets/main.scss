@@ -16,7 +16,9 @@ $sidebar-background-color: #181818 !default;
 .search-input {
   color: $text-color;
 }
-
+.site-logo {
+  margin-bottom: 0.5rem;
+}
 /* fonts, font family */
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,600;1,300;1,600&family=Space+Grotesk&display=swap');
