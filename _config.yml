@@ -69,10 +69,10 @@ collections:
     permalink: /:name
   pins:
     output: true
-    permalink: /bricolage/:name
+    permalink: /bricolage/:path
   meta:
     output: true
-    permalink: /z/:name
+    permalink: /bricolage/:name
 # Front Matter Defaults
 defaults:
   # _posts
