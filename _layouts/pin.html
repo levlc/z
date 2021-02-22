@@ -18,10 +18,10 @@ layout: default
       </article>
       <p class="entry-meta">
       {% if page.subject %} 
-          <span class="byline-item"><span class="icon">{% include icon-book.svg %}</span><a class="pins-taxonomy" href="{{ page.subject | downcase | replace: " ", "-" }}">{{ page.subject }} [{{ subject_count }}]</a></span>
+          <span class="byline-item"><span class="icon">{% include icon-book.svg %}</span><a class="pins-taxonomy" href="/bricolage/{{ page.subject | downcase | replace: " ", "-" }}">{{ page.subject }} [{{ subject_count }}]</a></span>
       {% endif %}
       {% if page.object %} 
-          <span class="byline-item"><span class="icon">{% include icon-user.svg %}</span><a class="pins-taxonomy" href="{{ page.object | downcase | replace: " ", "-" }}">{{ page.object }} [{{ object_count }}]</a></span>       
+          <span class="byline-item"><span class="icon">{% include icon-user.svg %}</span><a class="pins-taxonomy" href="/bricolage/{{ page.object | downcase | replace: " ", "-" }}">{{ page.object }} [{{ object_count }}]</a></span>       
       {% endif %}
       </p>  
     </div>
